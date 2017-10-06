@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!--jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+    </script>
+  </head>
+  <body>
+  <div class="container">
+    <div class="panel panel-default">
+      <div class="panel-heading"><h1><%= title %></h1></div>
+     <!-- <div class="panel-body">
+          Welcome to <%= title %>
+     -->
+    <br>
+     <button data-toggle="collapse" class="btn btn-lg btn-success" data-target="#ops">Collapsible</button>
+    <br>
+    <div id="ops">
+    <h4 class="well">Find All</h4>
+    <form action = '/findAll' method = "get"><br>
+      <button type="button" class="btn btn-lg btn-info">Get All&nbsp;<span class="badge"><%= remote.length-1 %></span></button></br></br>
+    </form>
+    <br>
+    <div>
+      <ul class="list-group">
+
+      <% remote.forEach(function(user){%>
+              <li class="list-group-item"><%= user.name%></li>
+      <%});%>
+      </ul>
+    </div>
+
+    <br><hr>
+
+    <h4 class="well">Find By User Name</h4>
+
+    <form action = '/findBy' method = "post"><br>
+      <label for = "name">Name:</label>
+      <input type = "text" name="name"/>
+      <input type = "submit" class="btn btn-lg btn-info" value="Find"/></br></br>
+    </form>
+    <h5><%= remote.name %></h5>
+  <br><hr>
+
+    <h4 class="well">Create Data</h4><br>
+
+    <form action = '/create' method = "POST">
+
+      <label for = "name">Name:</label>
+      <input type = "text" name="name"/></br>
+
+      <label for = "username">UserName:</label>
+      <input type = "text" name="username"/></br>
+
+      <label for = "assword">Password:</label>
+      <input type = "password" name="password"/></br>
+
+      <input type = "submit"  class="btn btn-lg btn-active" value="Done"/></br></br>
+
+    </form>
+    <br><hr>
+
+    <h4 class="well">Update Data</h4><br>
+
+    <form action = '/update' method = "post">
+
+      <label for = "name">Name:</label>
+      <input type = "text" name="name"/></br>
+
+      <label for = "newname">New Name:</label>
+      <input type = "text" name="newname"/></br>
+
+      <input type = "submit"  class="btn btn-lg btn-success" value="Update"/></br></br>
+    </form>
+
+    <br><hr>
+
+    <h4 class="well">Remove Data</h4><br>
+
+    <form action = '/removeData' method = "POST">
+
+      <label for = "name">Name:</label>
+      <input type = "text" name="name"/></br>
+
+      <input type = "submit"  class="btn btn-lg btn-danger" value="Remove"/></br></br>
+    </form>
+  </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+          <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+          <li><a href="#">HTML</a></li>
+          <li><a href="#">CSS</a></li>
+          <li><a href="#">JavaScript</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+  </body>
+</html>
